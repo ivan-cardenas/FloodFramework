@@ -144,6 +144,15 @@ def create_circular_dendrogram(df, category_col, subcategory_col, value_col=None
     cat_names = list(category_positions.keys())
     cat_colors_list = [category_colors[cat] for cat in cat_names]
     
+    # Determine text positions
+    text_positions = []
+    for n in nodes:
+        angle = n['angle']
+        if -np.pi/4 < angle < np.pi/4 or 3*np.pi/4 < angle < 5*np.pi/4:
+            text_positions.append('middle right' if np.cos(angle) > 0 else 'middle left')
+        else:
+            text_positions.append('top center' if np.sin(angle) > 0 else 'bottom center')
+    
     fig.add_trace(go.Scatter(
         x=cat_x,
         y=cat_y,
@@ -154,7 +163,7 @@ def create_circular_dendrogram(df, category_col, subcategory_col, value_col=None
             line=dict(color='black', width=2)
         ),
         text=cat_names,
-        textposition='top center',
+        textposition=text_positions,
         textfont=dict(size=10, color='black', family='Arial Black'),
         hovertemplate='<b>%{text}</b><extra></extra>',
         showlegend=False,
@@ -165,8 +174,8 @@ def create_circular_dendrogram(df, category_col, subcategory_col, value_col=None
     node_x = [n['x'] for n in nodes]
     node_y = [n['y'] for n in nodes]
     node_text = [f"{n['subcategory']}" for n in nodes]
-    hover_text = [f"<b>{n['category']}</b><br>{n['subcategory']}<br>Count: {n['count']}" 
-                  for n in nodes]
+    # hover_text = [f"<b>{n['category']}</b><br>{n['subcategory']}<br>Count: {n['count']}" for n in nodes]
+    hover_text = [f"<b>{n['category']}</b><br>{n['subcategory']}" for n in nodes]
     
     fig.add_trace(go.Scatter(
         x=node_x,
@@ -179,8 +188,8 @@ def create_circular_dendrogram(df, category_col, subcategory_col, value_col=None
             opacity=0.9
         ),
         text=node_text,
-        textposition='top center',
-        textfont=dict(size=8, color='black', family='Arial Black'),
+        textposition=text_positions,
+        textfont=dict(size=8, color='black', family='Arial Black', shadow=True),
         hovertemplate='%{hovertext}<extra></extra>',
         hovertext=hover_text,
         showlegend=True,
@@ -193,7 +202,7 @@ def create_circular_dendrogram(df, category_col, subcategory_col, value_col=None
             text='Circular Dendrogram', # Title of the plot
             x=0.5,
             xanchor='center',
-            font=dict(size=24, color='#2c3e50', family='Arial Black')
+            font=dict(size=24, color='#2c3e50', family='Arial Black', shadow=True)
         ),
         showlegend=False,
         hovermode='closest',
@@ -212,7 +221,8 @@ def create_circular_dendrogram(df, category_col, subcategory_col, value_col=None
             range=[-1.5, 1.5]
         ),
         height=800,
-        margin=dict(t=80, b=40, l=40, r=40)
+        margin=dict(t=40, b=20, l=20, r=20),
+        autosize=True
     )
     
     return fig
@@ -226,6 +236,7 @@ def main():
     if dataCSV is not None:
         # Read the CSV
         df = pd.read_csv(dataCSV)
+        df.drop(columns="Count", inplace=True, errors='ignore')
         
         st.success(f"✅ Loaded {len(df)} rows")
         
@@ -235,9 +246,10 @@ def main():
         with col1:
             category_col = st.selectbox(
                 "Select Category Column (outer ring)",
-                options=df.columns.tolist(),
+                options=sorted(df.columns.tolist()),
                 help="Main grouping level"
             )
+            st.markdown(category_col)
         
         with col2:
             subcategory_col = st.selectbox(
