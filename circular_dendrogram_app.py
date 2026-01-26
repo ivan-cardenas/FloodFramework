@@ -290,7 +290,7 @@ def main():
     st.title("Flood Framework Circular Dendrogram")
     st.markdown("#### Visualize hierarchical flood risk data using a circular dendrogram.")
     
-    dataCSV = r"data\domains_subdomains_flourish(in).csv"
+    dataCSV = r".\data\domains_subdomains_flourish(in).csv"
     
     if dataCSV is not None:
         # Read the CSV
