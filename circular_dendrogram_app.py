@@ -270,10 +270,17 @@ def create_circular_dendrogram(df, category_col, subcategory_col):
             symbol_size=15,
             orient="LR",
             series_name="Flood Framework",
+            is_roam=True,
             label_opts=opts.LabelOpts(position="radial", rotate=0, vertical_align="middle")
         ).set_global_opts(
             title_opts=opts.TitleOpts(title="Flood Risk Framework", ),
-            tooltip_opts=opts.TooltipOpts(trigger="item", trigger_on="mousemove")
+            tooltip_opts=opts.TooltipOpts(trigger="item", trigger_on="mousemove"),
+            toolbox_opts=opts.ToolboxOpts(is_show=True, pos_left="right", feature={
+                "saveAsImage": {},
+                "restore": {},
+                "dataView": {},
+                "dataZoom": {},
+            })
         )
     )
     return tree
@@ -281,7 +288,7 @@ def create_circular_dendrogram(df, category_col, subcategory_col):
 
 def main():
     st.title("Flood Framework Circular Dendrogram")
-    st.markdown("### Upload Flood Framework Data to Visualize hierarchical relationships")
+    st.markdown("#### Visualize hierarchical flood risk data using a circular dendrogram.")
     
     dataCSV = r"data\domains_subdomains_flourish(in).csv"
     
@@ -367,7 +374,7 @@ def main():
                         subcategory_col
                     )
                     
-                    # st.plotly_chart(fig, use_container_width=True)
+                    # st.plotly_chart(fig, width="stretch")
                     components.html(fig.render_embed(), height=900, scrolling=True)
                 
                 # Show filtered data

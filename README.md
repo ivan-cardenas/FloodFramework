@@ -1,13 +1,12 @@
-# Circular Dendrogram Explorer
+# Flood Risk Framework - Dendrogram Explorer
 
 A beautiful, interactive Streamlit application for visualizing hierarchical data using circular dendrograms with dynamic filtering capabilities.
 
 ## Features
 
-- 📊 **Interactive Circular Dendrogram**: Beautiful radial visualization of hierarchical relationships
+- 📊 **Interactive Flood Risk Framework Dendrogram**: Beautiful radial visualization of hierarchical relationships
 - 🎯 **Two-Level Filtering**: Filter by both category and subcategory
 - 🎨 **Modern Design**: Clean, gradient interface with custom styling
-- 📥 **CSV Upload**: Easy data import via drag-and-drop
 - 💾 **Export Filtered Data**: Download your filtered results
 - 📈 **Real-time Updates**: Dendrogram regenerates automatically when filters change
 - 🎨 **Color-Coded Categories**: Each category gets a unique color for easy identification
@@ -33,20 +32,17 @@ The app will open in your default web browser at `http://localhost:8501`
 
 ### Using the App
 
-1. **Upload CSV File**
-   - Click "Browse files" in the sidebar
-   - Select your CSV file (must have at least 2 columns)
 
-2. **Configure Columns**
+1. **Configure Columns**
    - Select your **Category Column** (main grouping level - outer ring)
    - Select your **Subcategory Column** (sub-grouping level - inner ring)
 
-3. **Filter Data**
+2. **Filter Data**
    - Use the Category filter to include/exclude entire categories
    - Use the Subcategory filter to include/exclude specific subcategories
    - The dendrogram updates automatically
 
-4. **Explore**
+3. **Explore**
    - Hover over nodes to see details
    - View statistics in the metrics panel
    - Expand "View Filtered Data" to see the underlying data
@@ -70,38 +66,6 @@ Healthcare,Hospitals,250
 - Additional columns are optional (can be used for reference)
 - No specific naming requirements - you select columns in the app
 
-## Sample Data
-
-A sample CSV file (`sample_data.csv`) is included with example hierarchical data across 6 categories:
-- Technology
-- Finance
-- Healthcare
-- Education
-- Marketing
-- Operations
-
-## How the Visualization Works
-
-### Circular Dendrogram Structure
-
-- **Center**: Empty space for clarity
-- **Inner Ring**: Category nodes (larger, labeled)
-- **Outer Ring**: Subcategory nodes (smaller, size varies by count)
-- **Lines**: Connect categories to their subcategories
-
-### Color Scheme
-
-Each category is assigned a unique color from a carefully selected palette:
-- Colors are consistent throughout the session
-- Subcategories inherit their parent category's color
-- Node sizes reflect the number of records in each subcategory
-
-### Interactive Features
-
-- **Hover**: See category, subcategory, and count information
-- **Zoom**: Click and drag to pan, scroll to zoom
-- **Filter**: Multiselect dropdowns for both levels
-- **Reset**: Simply reselect categories/subcategories
 
 ## Customization
 
@@ -118,7 +82,7 @@ colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', ...]  # Add your hex colors
 Modify the size calculation in the dendrogram function:
 
 ```python
-node_sizes.append(10 + count * 2)  # Change multiplier for different sizing
+symbol_size = 15  # Change value for different sizing
 ```
 
 ### Change Layout
@@ -134,7 +98,7 @@ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 ### Libraries Used
 
 - **Streamlit**: Web app framework
-- **Plotly**: Interactive visualizations
+- **Pyecharts**: Interactive visualizations
 - **Pandas**: Data manipulation
 - **NumPy**: Numerical computations
 - **SciPy**: Hierarchical clustering algorithms
@@ -156,8 +120,6 @@ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 **Issue**: Colors not distinct enough
 - **Solution**: Modify the color palette in the code
 
-**Issue**: Upload fails
-- **Solution**: Ensure CSV is properly formatted with column headers
 
 ## Future Enhancements
 
@@ -171,9 +133,9 @@ Potential features for future versions:
 
 ## License
 
-Free to use and modify for your projects.
+This project is released under the [CC-BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
 
-## Author
+## Authors
 
 Created with expertise in geospatial analysis, data visualization, and graphic design.
 
