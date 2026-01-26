@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from pathlib import Path
 # import plotly.graph_objects as go
 from pyecharts import options as opts
 from pyecharts.charts import Tree
@@ -7,6 +8,10 @@ import streamlit.components.v1 as components
 from scipy.cluster.hierarchy import dendrogram, linkage
 from scipy.spatial.distance import pdist
 import io
+
+
+THIS_DIR = Path(__file__).resolve().parent
+DATA_DIR = THIS_DIR / "data"
 
 # Page configuration
 st.set_page_config(
@@ -290,7 +295,7 @@ def main():
     st.title("Flood Framework Circular Dendrogram")
     st.markdown("#### Visualize hierarchical flood risk data using a circular dendrogram.")
     
-    dataCSV = r".\data\domains_subdomains_flourish(in).csv"
+    dataCSV = DATA_DIR / "domains_subdomains_flourish(in).csv"
     
     if dataCSV is not None:
         # Read the CSV
