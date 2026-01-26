@@ -246,20 +246,22 @@ def create_circular_dendrogram(df, category_col, subcategory_col):
     categories = df[category_col].unique()
     grouped = df.groupby([category_col, subcategory_col]).size().reset_index(name='count')
     
-    for category in categories:
+    for i, category in enumerate(categories):
         cat_group = grouped[grouped[category_col] == category]
+        color=colors[i % len(colors)]
+        
         children = []
         for _, row in cat_group.iterrows():
             children.append({
                 "name": row[subcategory_col],
                 "value": row['count'],
-                "itemStyle": {"color": colors[hash(category) % len(colors)]}
+                "itemStyle": {"color": color}
             })
 
         tree_data[0]["children"].append({
             "name": category,
             "children": children,
-            "itemStyle": {"color": colors[hash(category) % len(colors)]}
+            "itemStyle": {"color": color}
         })
     
         
