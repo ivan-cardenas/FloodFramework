@@ -314,14 +314,14 @@ def main():
         df = pd.read_csv(dataCSV)
         df.drop(columns="Count", inplace=True, errors='ignore')
         
-        st.success(f"✅ Loaded {len(df)} rows")
+        # st.success(f"✅ Loaded {len(df)} rows")
         
         # Column selection
         col1, col2 = st.columns(2)
         
         with col1:
             category_col = st.selectbox(
-                "Select Category Column (outer ring)",
+                "Select Domain Column (outer ring)",
                 options=sorted(df.columns.tolist()),
                 help="Main grouping level"
             )
@@ -329,7 +329,7 @@ def main():
         
         with col2:
             subcategory_col = st.selectbox(
-                "Select Subcategory Column (inner ring)",
+                "Select Sub-Domain Column (inner ring)",
                 options=[col for col in df.columns.tolist() if col != category_col],
                 help="Sub-grouping level"
             )
@@ -342,7 +342,7 @@ def main():
             filter_col1, filter_col2 = st.columns(2)
             
             with filter_col1:
-                st.markdown("**Filter by Category**")
+                st.markdown("**Filter by Domain**")
                 categories = df[category_col].unique().tolist()
                 selected_categories = st.multiselect(
                     "Select categories to include",
@@ -355,7 +355,7 @@ def main():
             filtered_df = df[df[category_col].isin(selected_categories)].copy()
             
             with filter_col2:
-                st.markdown("**Filter by Subcategory**")
+                st.markdown("**Filter by Sub-Domain**")
                 subcategories = filtered_df[subcategory_col].unique().tolist()
                 selected_subcategories = st.multiselect(
                     "Select subcategories to include",
@@ -367,18 +367,18 @@ def main():
             # Apply subcategory filter
             filtered_df = filtered_df[filtered_df[subcategory_col].isin(selected_subcategories)]
             
-            # Display statistics
-            st.markdown("---")
-            metric_col1, metric_col2, metric_col3 = st.columns(3)
+            # # Display statistics
+            # st.markdown("---")
+            # metric_col1, metric_col2, metric_col3 = st.columns(3)
             
-            with metric_col1:
-                st.metric("Total Records", len(filtered_df))
+            # with metric_col1:
+            #     st.metric("Total Records", len(filtered_df))
             
-            with metric_col2:
-                st.metric("Categories", len(selected_categories))
+            # with metric_col2:
+            #     st.metric("Categories", len(selected_categories))
             
-            with metric_col3:
-                st.metric("Subcategories", len(selected_subcategories))
+            # with metric_col3:
+            #     st.metric("Subcategories", len(selected_subcategories))
             
             # Generate and display dendrogram
             if len(filtered_df) > 0:
@@ -418,7 +418,7 @@ def main():
         st.markdown("""
         Your CSV should have at least two columns representing hierarchical levels:
         
-        | Category | Subcategory | Value |
+        | Domain | Sub-Domain | Value |
         |----------|-------------|-------|
         | Tech     | Software    | 100   |
         | Tech     | Hardware    | 150   |
