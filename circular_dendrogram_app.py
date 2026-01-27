@@ -27,7 +27,7 @@ st.markdown("""
         padding: 2rem;
     }
     .stApp {
-        background: linear-gradient(135deg, #023047 0%, #219ebc 100%);
+        background: #023047 0%
     }
     .css-1d391kg {
         background-color: white;
@@ -267,7 +267,7 @@ def create_circular_dendrogram(df, category_col, subcategory_col):
         
     tree = (
         Tree(init_opts=opts.InitOpts(
-            width="1200px", height="900px", renderer="canvas", bg_color="white"))
+            width="auto", height="900px", renderer="canvas", bg_color="white"))
         .add(
             data=tree_data,
             collapse_interval=0,
@@ -283,10 +283,8 @@ def create_circular_dendrogram(df, category_col, subcategory_col):
             title_opts=opts.TitleOpts(title="Flood Risk Framework", ),
             tooltip_opts=opts.TooltipOpts(trigger="item", trigger_on="mousemove"),
             toolbox_opts=opts.ToolboxOpts(is_show=True, pos_left="right", feature={
-                "saveAsImage": {},
-                "restore": {},
-                "dataView": {},
-                "dataZoom": {},
+                "saveAsImage": {"title": "Save as Image"},
+                "restore": {"title": "Restore View"},
             })
         )
     )
