@@ -321,7 +321,7 @@ def main():
         
         with col1:
             category_col = st.selectbox(
-                "Select Domain Column (outer ring)",
+                "Select Domain Column (Inner ring)",
                 options=sorted(df.columns.tolist()),
                 help="Main grouping level"
             )
@@ -329,7 +329,7 @@ def main():
         
         with col2:
             subcategory_col = st.selectbox(
-                "Select Sub-Domain Column (inner ring)",
+                "Select Sub-Domain Column (Outer ring)",
                 options=[col for col in df.columns.tolist() if col != category_col],
                 help="Sub-grouping level"
             )
