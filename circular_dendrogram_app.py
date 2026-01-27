@@ -345,7 +345,7 @@ def main():
                 st.markdown("**Filter by Domain**")
                 categories = df[category_col].unique().tolist()
                 selected_categories = st.multiselect(
-                    "Select categories to include",
+                    "Select domains to include",
                     options=categories,
                     default=categories,
                     key='category_filter'
@@ -358,7 +358,7 @@ def main():
                 st.markdown("**Filter by Sub-Domain**")
                 subcategories = filtered_df[subcategory_col].unique().tolist()
                 selected_subcategories = st.multiselect(
-                    "Select subcategories to include",
+                    "Select sub-domains to include",
                     options=subcategories,
                     default=subcategories,
                     key='subcategory_filter'
