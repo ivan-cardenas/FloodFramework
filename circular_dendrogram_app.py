@@ -12,13 +12,16 @@ import io
 
 THIS_DIR = Path(__file__).resolve().parent
 DATA_DIR = THIS_DIR / "data"
+LOGO_PATH = DATA_DIR / "logo_new_s4a.png"
 
 # Page configuration
 st.set_page_config(
     page_title="Flood Framework",
-    page_icon="",
+    page_icon= "🌊",
     layout="wide"
 )
+
+
 
 # Custom CSS for better design
 st.markdown("""
@@ -47,6 +50,9 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
+
+st.logo(LOGO_PATH, size="Large")
+
 
 # def create_circular_dendrogram(df, category_col, subcategory_col, value_col=None):
 #     """
@@ -292,8 +298,14 @@ def create_circular_dendrogram(df, category_col, subcategory_col):
             
 
 def main():
-    st.title("Flood Framework Circular Dendrogram")
-    st.markdown("#### Visualize hierarchical flood risk data using a circular dendrogram.")
+    
+    logo, title = st.columns([1, 10])
+    
+    with logo:
+        st.image(LOGO_PATH, width=100)
+    with title:
+        st.title("Flood Framework Circular Dendrogram")
+        st.markdown("#### Visualize hierarchical flood risk data using a circular dendrogram.")
     
     dataCSV = DATA_DIR / "domains_subdomains_flourish(in).csv"
     
