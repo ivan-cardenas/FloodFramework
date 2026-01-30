@@ -4,11 +4,16 @@ from pathlib import Path
 # import plotly.graph_objects as go
 from pyecharts import options as opts
 from pyecharts.charts import Tree
+from pyecharts.commons.utils import JsCode
 import streamlit.components.v1 as components
 from scipy.cluster.hierarchy import dendrogram, linkage
 from scipy.spatial.distance import pdist
 import io
 
+from pyecharts.globals import CurrentConfig
+
+# Use jsDelivr CDN instead
+CurrentConfig.ONLINE_HOST = "https://cdn.jsdelivr.net/npm/echarts@6.0.0/dist/"
 
 THIS_DIR = Path(__file__).resolve().parent
 DATA_DIR = THIS_DIR / "data"
@@ -246,8 +251,8 @@ def create_circular_dendrogram(df, category_col, subcategory_col):
     tree_data = [{"name": "Flood Framework", "children": []}]
     
     # Color palette for categories
-    colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', 
-          '#F7DC6F', '#BB8FCE', '#85C1E2', '#F8B739', '#52B788']
+    colors = ['#FF6B6B', '#4ECDC4', "#176070", '#FFA07A', "#48FDD0", 
+          "#F0C108", '#BB8FCE', "#230E36", "#B37A08", "#1E4633"]
     
     categories = df[category_col].unique()
     grouped = df.groupby([category_col, subcategory_col]).size().reset_index(name='count')
@@ -261,13 +266,15 @@ def create_circular_dendrogram(df, category_col, subcategory_col):
             children.append({
                 "name": row[subcategory_col],
                 "value": row['count'],
-                "itemStyle": {"color": color}
+                "itemStyle": {"color": color},
+                "explanation" : row['explanation'] if 'explanation' in row else "",
             })
 
         tree_data[0]["children"].append({
             "name": category,
             "children": children,
-            "itemStyle": {"color": color}
+            "itemStyle": {"color": color},
+            "explanation" : row['explanation'] if 'explanation' in row else "",
         })
     
         
@@ -287,7 +294,13 @@ def create_circular_dendrogram(df, category_col, subcategory_col):
             label_opts=opts.LabelOpts(position="radial", rotate=0, vertical_align="middle")
         ).set_global_opts(
             title_opts=opts.TitleOpts(title="Flood Risk Framework", ),
-            tooltip_opts=opts.TooltipOpts(trigger="item", trigger_on="mousemove"),
+            tooltip_opts=opts.TooltipOpts(trigger="item", trigger_on="mousemove",
+                                          formatter=JsCode("""
+                function(params) {
+                    return '<b>' + params.name + '</b><br/>' +
+                           '<i>' + params.data.explanation + '</i>';
+                }
+            """)),
             toolbox_opts=opts.ToolboxOpts(is_show=True, pos_left="right", feature={
                 "saveAsImage": {"title": "Save as Image"},
                 "restore": {"title": "Restore View"},
