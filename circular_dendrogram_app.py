@@ -251,15 +251,24 @@ def create_circular_dendrogram(df, category_col, subcategory_col):
     tree_data = [{"name": "Flood Framework", "children": []}]
     
     # Color palette for categories
-    colors = ['#FF6B6B', '#4ECDC4', "#176070", '#FFA07A', "#48FDD0", 
-          "#F0C108", '#BB8FCE', "#230E36", "#B37A08", "#1E4633"]
+    colors = {
+    "Social and demographic features": "#A6CEE3",
+    "Sanitation and health infrastructure": "#1F78B4",
+    "Spatial factors": "#B2DF8A",
+    "Physical characteristics": "#33A02C",
+    "Economic aspects": "#FB9A99",
+    "Governance systems": "#E31A1C",
+    "Institutional capacities": "#FDBF6F",
+    "Community-led actions": "#FF7F00",
+    "Awareness and alert systems": "#CAB2D6"
+}
     
     categories = df[category_col].unique()
     grouped = df.groupby([category_col, subcategory_col]).size().reset_index(name='count')
     
     for i, category in enumerate(categories):
         cat_group = grouped[grouped[category_col] == category]
-        color=colors[i % len(colors)]
+        color=colors.get(category, "#CCCCCC")  # Default color if category not in colors dict
         
         children = []
         for _, row in cat_group.iterrows():
