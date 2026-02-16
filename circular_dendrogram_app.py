@@ -21,7 +21,7 @@ LOGO_PATH = DATA_DIR / "logo_new_s4a.png"
 
 # Page configuration
 st.set_page_config(
-    page_title="Flood Framework",
+    page_title="Flood vulnerability framework for deprived urban areas ",
     page_icon= "🌊",
     layout="wide"
 )
@@ -326,8 +326,13 @@ def main():
     with logo:
         st.image(LOGO_PATH, width=100)
     with title:
-        st.title("Flood Framework Circular Dendrogram")
-        st.markdown("#### Visualize hierarchical flood risk data using a circular dendrogram.")
+        st.title("Flood vulnerability framework for deprived urban areas ")
+        st.markdown("#### Co-developed with local stakeholders, tailored to African contexts.")
+        st.markdown("""            
+                    This platform shares a co-developed flood vulnerability framework designed for deprived urban areas in African cities. The framework supports city practitioners, community organizations and researchers in identifying locally relevant vulnerability mechanisms and translating them into context-sensitive flood assessments.  
+
+                    The framework was co-developed through participatory workshops with community- and city-level stakeholders to map flood impacts and the vulnerability factors shaping them.  
+                    """)
     
     dataCSV = DATA_DIR / "domains_subdomains_flourish(in).csv"
     
