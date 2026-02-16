@@ -1,0 +1,43 @@
+﻿Sub-domains,Domains,Count,explanation
+Age groups,Social and demographic features,30,"Age-specific traits shaping vulnerability, such as children, elderly, youth. "
+Community preparedness,Awareness and alert systems,8,"Collective capacities of a community to anticipate and respond to floods through awareness, education, and engagement. "
+Community preparedness,Community-led actions,3,"Collective capacities of a community to anticipate and respond to floods through awareness, education, and engagement. "
+Community response,Community-led actions,4,"Collective local actions taken during floods to cope and recover from flood impacts, such as social mobilization, community support and local rescue teams. "
+Culture,Social and demographic features,3,"Local norms, beliefs, and practices that shape how residents respond to and perceive floods. "
+Culture,Sanitation and health infrastructure,2,"Local norms, beliefs, and practices that shape how residents respond to and perceive floods. "
+Education,Social and demographic features,12,Literacy rate affecting livelihood opportunities. 
+Environmental features,Physical characteristics,6,"Physical and ecological attributes that influence flood impacts, depending on how they are managed or preserved, like deforestation and river characteristics. "
+Environmental features,Spatial factors,2,"Physical and ecological attributes that influence flood impacts, depending on how they are managed or preserved, like deforestation and river characteristics. "
+Exclusionary systems,Economic aspects,6,"Structural practices that systematically marginalize certain populations by limiting access to resources, services, protection, and power.  "
+Exclusionary systems,Governance systems,4,"Structural practices that systematically marginalize certain populations by limiting access to resources, services, protection, and power.  "
+Exclusionary systems,Social and demographic features,3,"Structural practices that systematically marginalize certain populations by limiting access to resources, services, protection, and power.  "
+Exclusionary systems,Sanitation and health infrastructure,1,"Structural practices that systematically marginalize certain populations by limiting access to resources, services, protection, and power.  "
+Farm location,Spatial factors,5,Location of agricultural and livestock lands relative to flood zones. 
+Gender roles,Social and demographic features,13,Socially constructed roles and expectations associated with being female that influence how they experience flood impacts. 
+Housing exposure,Spatial factors,22,Location of residential areas relative to flood zones and water bodies. 
+Housing quality,Physical characteristics,10,Physical condition and robustness of residential structures that determine their resilience. 
+Informal infrastructure,Physical characteristics,5,Unregulated (often improvised) infrastructure that is highly vulnerable to damage during floods. 
+Infrastructure quality,Sanitation and health infrastructure,12,"Physical condition and robustness of physical structures and systems that support resilience. Includes road conditions, quality of structures. "
+Infrastructure quality,Physical characteristics,8,"Physical condition and robustness of physical structures and systems that support resilience. Includes road conditions, quality of structures. "
+Institutional Trust,Governance systems,5,"Public confidence in local authorities and their capacity to act fairly, including bribing, false promises, or fear of government authorities. "
+Law enforcement,Governance systems,5,Mechanisms through which legal and policy frameworks are upheld to manage flood risk. 
+Livelihood fragility,Social and demographic features,9,"Sensitivity of certain jobs to flood impacts, especially farmers and traders.  "
+Livelihood fragility,Economic aspects,5,"Sensitivity of certain jobs to flood impacts, especially farmers and traders.  "
+Local mitigation measures,Community-led actions,9,"Grassroots physical interventions to minimize flood impacts, such as sandbags, gabions, riverbank restoration. "
+Local mitigation measures,Physical characteristics,3,"Grassroots physical interventions to minimize flood impacts, such as sandbags, gabions, riverbank restoration. "
+Management of institutional resources,Institutional capacities,11,"Capacity and integrity of formal institutions to plan, allocate, and deliver basic services and support in flood-prone contexts.  "
+Management of institutional resources,Governance systems,5,"Capacity and integrity of formal institutions to plan, allocate, and deliver basic services and support in flood-prone contexts.  "
+Occupation,Social and demographic features,5,"Certain job types and roles that influence exposure, such as first responders. "
+People with disabilities,Social and demographic features,11,"Individuals who experience long-term physical, mental, intellectual conditions that amplify exposure and reduce adaptive capacity. "
+Poverty traps,Economic aspects,5,Structural conditions of deprivation that perpetuate flood risk in low-income households.  
+Poverty traps,Social and demographic features,2,Structural conditions of deprivation that perpetuate flood risk in low-income households.  
+Public health systems,Sanitation and health infrastructure,14,"Infrastructure, services, and operations that influence community health before, during, and after floods.  "
+Public health systems,Institutional capacities,6,"Infrastructure, services, and operations that influence community health before, during, and after floods.  "
+Sanitation provision,Sanitation and health infrastructure,23,"Availability and quality of sanitation systems for drainage, human waste, and hygiene that influence exposure and health outcomes during floods.  "
+Social network,Social and demographic features,2,
+Social network,Community-led actions,1,
+Urban planning,Governance systems,6,"Presence and quality of regulatory frameworks for land use organization and settlement development, including spatial layout, density, and zoning.  "
+Urban planning,Physical characteristics,5,"Presence and quality of regulatory frameworks for land use organization and settlement development, including spatial layout, density, and zoning.  "
+Urban planning,Spatial factors,4,"Presence and quality of regulatory frameworks for land use organization and settlement development, including spatial layout, density, and zoning.  "
+Warning systems,Awareness and alert systems,5,Mechanisms to detect and communicate imminent flood threats. 
+Risk Perception,Awareness and alert systems,,Socio-psychological ways that residents understand and respond to flood threats. 

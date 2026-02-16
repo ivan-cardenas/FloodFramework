@@ -17,7 +17,8 @@ CurrentConfig.ONLINE_HOST = "https://cdn.jsdelivr.net/npm/echarts@6.0.0/dist/"
 
 THIS_DIR = Path(__file__).resolve().parent
 DATA_DIR = THIS_DIR / "data"
-LOGO_PATH = DATA_DIR / "logo_new_s4a.png"
+LOGO_PATH = DATA_DIR / "Logo.png"
+SECOND_LOGO_PATH = DATA_DIR / "logo_new_s4a.png"
 
 # Page configuration
 st.set_page_config(
@@ -59,193 +60,6 @@ st.markdown("""
 st.logo(LOGO_PATH, size="Large")
 
 
-# def create_circular_dendrogram(df, category_col, subcategory_col, value_col=None):
-#     """
-#     Create a circular dendrogram from hierarchical data
-    
-#     Parameters:
-#     - df: DataFrame with hierarchical data
-#     - category_col: Column name for main categories
-#     - subcategory_col: Column name for subcategories
-#     - value_col: Optional column for values/weights
-#     """
-    
-#     # Create hierarchical structure
-#     categories = df[category_col].unique()
-    
-#     # Build coordinates for circular layout
-#     nodes = []
-#     node_colors = []
-#     node_sizes = []
-    
-#     # Color palette for categories
-#     colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', 
-#               '#F7DC6F', '#BB8FCE', '#85C1E2', '#F8B739', '#52B788']
-    
-#     category_colors = {cat: colors[i % len(colors)] for i, cat in enumerate(categories)}
-    
-#     # Calculate positions
-#     total_items = len(df)
-#     angle_step = 2 * np.pi / total_items
-    
-#     edges_x = []
-#     edges_y = []
-    
-#     current_angle = 0
-#     category_positions = {}
-    
-#     for category in categories:
-#         cat_df = df[df[category_col] == category]
-#         subcats = cat_df[subcategory_col].unique()
-        
-#         cat_start_angle = current_angle
-        
-#         for subcat in subcats:
-#             subcat_df = cat_df[cat_df[subcategory_col] == subcat]
-#             count = len(subcat_df)
-            
-#             # Position for this subcategory
-#             mid_angle = current_angle + (count * angle_step) / 2
-            
-#             # Outer radius for leaf nodes
-#             radius = 1.0
-#             x = radius * np.cos(mid_angle)
-#             y = radius * np.sin(mid_angle)
-            
-#             nodes.append({
-#                 'x': x, 
-#                 'y': y, 
-#                 'category': category,
-#                 'subcategory': subcat,
-#                 'count': count,
-#                 'angle': mid_angle
-#             })
-            
-#             node_colors.append(category_colors[category])
-#             node_sizes.append(10 + count * 2)  # Size based on count
-            
-#             current_angle += count * angle_step
-        
-#         # Store category center
-#         cat_end_angle = current_angle
-#         cat_mid_angle = (cat_start_angle + cat_end_angle) / 2
-#         category_positions[category] = {
-#             'angle': cat_mid_angle,
-#             'x': 0.5 * np.cos(cat_mid_angle),
-#             'y': 0.5 * np.sin(cat_mid_angle)
-#         }
-    
-#     # Create edges connecting subcategories to categories
-#     for node in nodes:
-#         cat_pos = category_positions[node['category']]
-        
-#         # Draw edge from category center to subcategory
-#         edges_x.extend([cat_pos['x'], node['x'], None])
-#         edges_y.extend([cat_pos['y'], node['y'], None])
-    
-#     # Create the plot
-#     fig = go.Figure()
-    
-#     # Add edges
-#     fig.add_trace(go.Scatter(
-#         x=edges_x,
-#         y=edges_y,
-#         mode='lines',
-#         line=dict(color='#023047', width=1),
-#         hoverinfo='none',
-#         showlegend=False
-#     ))
-    
-#     # Add category nodes (inner circle)
-#     cat_x = [pos['x'] for pos in category_positions.values()]
-#     cat_y = [pos['y'] for pos in category_positions.values()]
-#     cat_names = list(category_positions.keys())
-#     cat_colors_list = [category_colors[cat] for cat in cat_names]
-    
-#     # Determine text positions
-#     text_positions = []
-#     for n in nodes:
-#         angle = n['angle']
-#         if -np.pi/4 < angle < np.pi/4 or 3*np.pi/4 < angle < 5*np.pi/4:
-#             text_positions.append('middle right' if np.cos(angle) > 0 else 'middle left')
-#         else:
-#             text_positions.append('top center' if np.sin(angle) > 0 else 'bottom center')
-    
-#     fig.add_trace(go.Scatter(
-#         x=cat_x,
-#         y=cat_y,
-#         mode='markers+text',
-#         marker=dict(
-#             size=30,
-#             color=cat_colors_list,
-#             line=dict(color='black', width=2)
-#         ),
-#         text=cat_names,
-#         textposition=text_positions,
-#         textfont=dict(size=10, color='black', family='Arial Black'),
-#         hovertemplate='<b>%{text}</b><extra></extra>',
-#         showlegend=False,
-#         name='Categories'
-#     ))
-    
-#     # Add subcategory nodes (outer circle)
-#     node_x = [n['x'] for n in nodes]
-#     node_y = [n['y'] for n in nodes]
-#     node_text = [f"{n['subcategory']}" for n in nodes]
-#     # hover_text = [f"<b>{n['category']}</b><br>{n['subcategory']}<br>Count: {n['count']}" for n in nodes]
-#     hover_text = [f"<b>{n['category']}</b><br>{n['subcategory']}" for n in nodes]
-    
-#     fig.add_trace(go.Scatter(
-#         x=node_x,
-#         y=node_y,
-#         mode='markers+text',
-#         marker=dict(
-#             size=node_sizes,
-#             color=node_colors,
-#             line=dict(color='darkgray', width=2),
-#             opacity=0.9
-#         ),
-#         text=node_text,
-#         textposition=text_positions,
-#         textfont=dict(size=8, color='black', family='Arial Black', shadow=True),
-#         hovertemplate='%{hovertext}<extra></extra>',
-#         hovertext=hover_text,
-#         showlegend=True,
-#         name='Subcategories'
-#     ))
-    
-#     # Update layout
-#     fig.update_layout(
-#         title=dict(
-#             text='Circular Dendrogram', # Title of the plot
-#             x=0.5,
-#             xanchor='center',
-#             font=dict(size=24, color='#2c3e50', family='Arial Black', shadow=True)
-#         ),
-#         showlegend=False,
-#         hovermode='closest',
-#         plot_bgcolor='rgba(0,0,0,0)',
-#         paper_bgcolor='white',
-#         xaxis=dict(
-#             showgrid=False,
-#             zeroline=False,
-#             showticklabels=False,
-#             range=[-1.5, 1.5]
-#         ),
-#         yaxis=dict(
-#             showgrid=False,
-#             zeroline=False,
-#             showticklabels=False,
-#             range=[-1.5, 1.5]
-#         ),
-#         height=800,
-#         margin=dict(t=40, b=20, l=20, r=20),
-#         autosize=True
-#     )
-    
-#     return fig
-
-
 def create_circular_dendrogram(df, category_col, subcategory_col):
     
     tree_data = [{"name": "Flood Framework", "children": []}]
@@ -263,8 +77,22 @@ def create_circular_dendrogram(df, category_col, subcategory_col):
     "Awareness and alert systems": "#CAB2D6"
 }
     
+    domain_definitions = {
+    "Social and demographic features": "Population composition, social roles, social capital, community dynamics, and demographic pressure that influence the vulnerability of individuals or groups, limiting their capacity to cope with and recover from floods.",
+    "Sanitation and health infrastructure": "Infrastructure, services, and practices that safeguard community health before, during, and after flood crises—particularly sanitation provision and quality. ",
+    "Spatial factors": "Influence of the location and distribution of people and structures in urban settlements, including placement of human activities and the morphology of built-up areas. ",
+    "Physical characteristics": "Influence of the location and distribution of people and structures in urban settlements, including placement of human activities and the morphology of built-up areas. ",
+    "Economic aspects": "Limiting or enabling economic conditions that either deepen or reduce flood vulnerability, including limitations in financial capacity, economic opportunity, and access to basic services and utilities. ",
+    "Governance systems": "Systemic aspects that influence how decisions are made, implemented, and held accountable in flood risk management, including issues in planning, reinforcement, and trust. ",
+    "Institutional capacities": "Factors that affect the ability of formal institutions to carry out disaster-related operations effectively, involving resources, skills, structure, and infrastructure. ",
+    "Community-led actions": "Collective or individual practices initiated and carried out by community members themselves—without depending entirely on external agencies—to prevent and respond to flood impacts ",
+    "Awareness and alert systems": "Knowledge and communication systems that inform and prepare residents. "
+}
+    
     categories = df[category_col].unique()
-    grouped = df.groupby([category_col, subcategory_col]).size().reset_index(name='count')
+  
+    grouped = df.groupby([category_col, subcategory_col, "explanation"]).size().reset_index(name='count')
+  
     
     for i, category in enumerate(categories):
         cat_group = grouped[grouped[category_col] == category]
@@ -276,16 +104,16 @@ def create_circular_dendrogram(df, category_col, subcategory_col):
                 "name": row[subcategory_col],
                 "value": row['count'],
                 "itemStyle": {"color": color},
-                "explanation" : row['explanation'] if 'explanation' in row else "",
+                "explanation" : row['explanation'],
             })
+            
 
         tree_data[0]["children"].append({
             "name": category,
             "children": children,
             "itemStyle": {"color": color},
-            "explanation" : row['explanation'] if 'explanation' in row else "",
+            "explanation" : domain_definitions.get(category, ""),
         })
-    
         
     tree = (
         Tree(init_opts=opts.InitOpts(
@@ -309,7 +137,14 @@ def create_circular_dendrogram(df, category_col, subcategory_col):
                     return '<b>' + params.name + '</b><br/>' +
                            '<i>' + params.data.explanation + '</i>';
                 }
-            """)),
+            """),
+                                          extra_css_text="""
+                                          display: flex; 
+                                          flex-direction: column; 
+                                          align-items: center; 
+                                          max-width: 400px;
+                                          white-space: normal;
+                                          """),
             toolbox_opts=opts.ToolboxOpts(is_show=True, pos_left="right", feature={
                 "saveAsImage": {"title": "Save as Image"},
                 "restore": {"title": "Restore View"},
@@ -319,27 +154,33 @@ def create_circular_dendrogram(df, category_col, subcategory_col):
     return tree
             
 
-def main():
+def main(): 
     
     logo, title = st.columns([1, 10])
     
     with logo:
-        st.image(LOGO_PATH, width=100)
+        st.image(SECOND_LOGO_PATH, width=100)
     with title:
         st.title("Flood vulnerability framework for deprived urban areas ")
-        st.markdown("#### Co-developed with local stakeholders, tailored to African contexts.")
+        st.markdown("### Co-developed with local stakeholders, tailored to African contexts.")
         st.markdown("""            
-                    This platform shares a co-developed flood vulnerability framework designed for deprived urban areas in African cities. The framework supports city practitioners, community organizations and researchers in identifying locally relevant vulnerability mechanisms and translating them into context-sensitive flood assessments.  
+This platform shares a co-developed flood vulnerability framework designed for deprived urban areas in African cities. The framework supports city practitioners, community organizations and researchers in identifying locally relevant vulnerability mechanisms and translating them into context-sensitive flood assessments.  
 
-                    The framework was co-developed through participatory workshops with community- and city-level stakeholders to map flood impacts and the vulnerability factors shaping them.  
+The framework was co-developed through participatory workshops with community- and city-level stakeholders to map flood impacts and the vulnerability factors shaping them.  
+                    
+The definition of each domain and sub-domain can be found by hovering the mouse on top of them.  
+
+In this platform you can either explore the domains and sub-domains emerged from the participatory approach, see their definition and typical mechanisms to flood impacts; or customize the framework to match your local context. Download of the tailored version is also possible. We encourage the use of the platform as facilitation tool in workshops with relevant local stakeholders, starting with the full generic framework, then collectively prioritize the most relevant domains, discussing connections between them.  
+                    ---
                     """)
     
-    dataCSV = DATA_DIR / "domains_subdomains_flourish(in).csv"
+    dataCSV = DATA_DIR / "Domains_subDomains.csv"
     
     if dataCSV is not None:
         # Read the CSV
         df = pd.read_csv(dataCSV)
         df.drop(columns="Count", inplace=True, errors='ignore')
+ 
         
         # st.success(f"✅ Loaded {len(df)} rows")
         
@@ -352,7 +193,6 @@ def main():
                 options=sorted(df.columns.tolist()),
                 help="Main grouping level"
             )
-            st.markdown(category_col)
         
         with col2:
             subcategory_col = st.selectbox(
@@ -380,6 +220,7 @@ def main():
             
             # Filter dataframe by selected categories first
             filtered_df = df[df[category_col].isin(selected_categories)].copy()
+            
             
             with filter_col2:
                 st.markdown("**Filter by Sub-Domain**")
@@ -410,6 +251,7 @@ def main():
             # Generate and display dendrogram
             if len(filtered_df) > 0:
                 st.markdown("---")
+                
                 
                 with st.spinner("Generating circular dendrogram..."):
                     fig = create_circular_dendrogram(
@@ -453,5 +295,21 @@ def main():
         | Finance  | Insurance   | 120   |
         """)
 
+    st.markdown("""
+                ### Ethical Statement 
+
+Workshop participation followed informed consent procedures and ethical approval from Geoethics Committee, application nr. 240127. We acknowledge the contributions of community participants and partner organizations who supported recruitment, facilitation, and contextual interpretation. 
+
+**Study sites**: Nairobi, Kisumu (Kenya); Accra, Tema (Ghana); Beira, Chimoio (Mozambique). 
+
+**Time period**: April 2024 - April 2025. 
+
+**Local partners**: University of Ghana, SDI Kenya, Data4Moz.  
+
+**Funding**: This research was carried out under the SPACE4ALL project (File number OCENW.M.21.168), funded by the Dutch Research Council (NWO).  
+
+**Contact**: [l.trentooliveira@utwente.nl](mailto:l.trentooliveira@utwente.nl)
+                
+                """)
 if __name__ == "__main__":
     main()
