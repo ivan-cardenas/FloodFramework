@@ -308,8 +308,16 @@ Workshop participation followed informed consent procedures and ethical approval
 
 **Funding**: This research was carried out under the SPACE4ALL project (File number OCENW.M.21.168), funded by the Dutch Research Council (NWO).  
 
-**Contact**: [l.trentooliveira@utwente.nl](mailto:l.trentooliveira@utwente.nl)
+
                 
                 """)
+    
+    st.markdown("""
+                ## Authorship
+
+The co-developed framework was created by the [SPACE4ALL](https://www.itc.nl/space4all/) research team, led by **Lorraine Trento Oliveira** [<img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" height="20"/>](https://www.linkedin.com/in/lorraine-t-oliveira/) [<img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" height="20"/>](https://orcid.org/0000-0002-2707-8006). The web platform was designed by **Iván Cárdenas León** [<img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" height="20"/>](https://www.linkedin.com/in/ivancardenasleon/) [<img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" height="20"/>](https://orcid.org/0009-0005-0245-633X).
+
+**Contact**: [l.trentooliveira@utwente.nl](mailto:l.trentooliveira@utwente.nl)  
+                """, unsafe_allow_html=True)
 if __name__ == "__main__":
     main()
