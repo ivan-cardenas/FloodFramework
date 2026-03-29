@@ -1,0 +1,45 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Flood Risk Framework - Dendrogram Explorer
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Lorraine
+    family-names: Trento Oliveira
+    email: l.trentrooliveira@utwente.nl
+    affiliation: University of Twente
+    orcid: 'https://orcid.org/0000-0002-2707-8006'
+  - given-names: Anne M.
+    family-names: Dijkstra
+    orcid: 'https://orcid.org/0000-0002-1699-5087'
+    affiliation: University of Twente
+  - given-names: Mariana
+    family-names: Belgiu
+    affiliation: University of Twente
+    orcid: 'https://orcid.org/0000-0002-2147-1894'
+  - given-names: 'Florencio '
+    family-names: Campomanes
+    name-suffix: V
+    affiliation: University of Twente
+    orcid: 'https://orcid.org/0000-0002-1051-3104'
+  - given-names: Ivan
+    family-names: Cárdenas-León
+    email: i.l.cardenasleon@utwente.nl
+    affiliation: University of Twente
+    orcid: 'https://orcid.org/0009-0005-0245-633X'
+  - given-names: Monika
+    family-names: Kuffer
+    affiliation: University of Twente
+    orcid: 'https://orcid.org/0000-0002-1915-2069'
+identifiers:
+  - type: url
+    value: 'https://floodframework.streamlit.app/'
+repository-code: 'https://github.com/ivan-cardenas/FloodFramework/'
+url: 'https://floodframework.streamlit.app/'
+abstract: >-
+  Frameworks for assessing urban flood vulnerability shape adaptation planning, yet they cannot fully capture how flooding is experienced in deprived urban areas (DUAs). Through 21 participatory workshops across six African cities, we co-develop a vulnerability framework grounded in the resident’s lived experiences and systematically compare its emergent domains with existing literature via a scoping review. Drawing from grounded theory analysis, the framework conceptualized at three interconnected levels and nine domains: (1) Structural systems, composed by Governance systems, Institutional capacities, and Economic aspects; (2) Material conditions, composed by Spatial factors, Physical characteristics and Sanitation and health infrastructure; (3) and Social fabric, composed by Social and demographic features, Community-led actions and Awareness and alert systems. While dominant frameworks broadly align with these empirical domains, they consistently underrepresent sanitation provision, livelihood fragilities and gendered inequalities, that are central to DUAs. Thereby, this framework reduces uncertainties that arise when generalized models are applied to deprived urban contexts, informing future research and equitable adaptation strategies.
+license: CC-BY-NC-SA-4.0
