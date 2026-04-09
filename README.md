@@ -1,4 +1,4 @@
-# Flood Risk Framework - Dendrogram Explorer
+# The VALUED framework
 A beautiful, interactive Streamlit application for visualizing hierarchical data using circular dendrograms with dynamic filtering capabilities.
 
 [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
