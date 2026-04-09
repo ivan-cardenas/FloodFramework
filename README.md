@@ -1,4 +1,5 @@
 # The VALUED framework
+## Vulnerability & Local Urban Experience in Deprived-settlements
 A beautiful, interactive Streamlit application for visualizing hierarchical data using circular dendrograms with dynamic filtering capabilities.
 
 [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
