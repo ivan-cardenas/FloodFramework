@@ -22,7 +22,7 @@ SECOND_LOGO_PATH = DATA_DIR / "logo_new_s4a.png"
 
 # Page configuration
 st.set_page_config(
-    page_title="Flood vulnerability framework for deprived urban areas ",
+    page_title="VALUED - Vulnerability & Local Urban Experience in Deprived-settlements",
     page_icon= "🌊",
     layout="wide"
 )
@@ -161,8 +161,8 @@ def main():
     with logo:
         st.image(SECOND_LOGO_PATH, width=100)
     with title:
-        st.title("Flood vulnerability framework for deprived urban areas ")
-        st.markdown("### Co-developed with local stakeholders, tailored to African contexts.")
+        st.title("The VALUED framework ")
+        st.markdown("### Vulnerability & Local Urban Experience in Deprived-settlements.")
         st.markdown("""            
 This platform shares a co-developed flood vulnerability framework designed for deprived urban areas in African cities. The framework supports city practitioners, community organizations and researchers in identifying locally relevant vulnerability mechanisms and translating them into context-sensitive flood assessments.  
 
