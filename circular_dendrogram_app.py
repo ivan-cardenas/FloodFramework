@@ -62,7 +62,7 @@ st.logo(LOGO_PATH, size="Large")
 
 def create_circular_dendrogram(df, category_col, subcategory_col):
     
-    tree_data = [{"name": "Flood Framework", "children": []}]
+    tree_data = [{"name": "Flood Vulnearbility", "children": []}]
     
     # Color palette for categories
     colors = {
@@ -126,11 +126,11 @@ def create_circular_dendrogram(df, category_col, subcategory_col):
             symbol="circle",
             symbol_size=15,
             orient="LR",
-            series_name="Flood Framework",
+            series_name="Flood vulnerability",
             is_roam=True,
             label_opts=opts.LabelOpts(position="radial", rotate=0, vertical_align="middle")
         ).set_global_opts(
-            title_opts=opts.TitleOpts(title="Flood Risk Framework", ),
+            title_opts=opts.TitleOpts(title="VALUED Framework", ),
             tooltip_opts=opts.TooltipOpts(trigger="item", trigger_on="mousemove",
                                           formatter=JsCode("""
                 function(params) {
