@@ -62,7 +62,7 @@ st.logo(LOGO_PATH, size="Large")
 
 def create_circular_dendrogram(df, category_col, subcategory_col):
     
-    tree_data = [{"name": "Flood Vulnearbility", "children": []}]
+    tree_data = [{"name": "Flood Vulnerability", "children": []}]
     
     # Color palette for categories
     colors = {
