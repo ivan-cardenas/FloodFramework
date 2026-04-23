@@ -66,15 +66,15 @@ def create_circular_dendrogram(df, category_col, subcategory_col):
     
     # Color palette for categories
     colors = {
-    "Social and demographic features": "#A6CEE3",
-    "Sanitation and health infrastructure": "#1F78B4",
-    "Spatial factors": "#B2DF8A",
-    "Physical characteristics": "#33A02C",
-    "Economic aspects": "#FB9A99",
-    "Governance systems": "#E31A1C",
-    "Institutional capacities": "#FDBF6F",
-    "Community-led actions": "#FF7F00",
-    "Awareness and alert systems": "#CAB2D6"
+    "Social and demographic features": "#9467BA",
+    "Sanitation and health infrastructure": "#16BDCF",
+    "Spatial factors": "#329F2B",
+    "Physical characteristics": "#2077B3",
+    "Economic aspects": "#BCBD21",
+    "Governance systems": "#8C564A",
+    "Institutional capacities": "#FF7F02",
+    "Community-led actions": "#7E7E7E",
+    "Awareness and alert systems": "#E377C2"
 }
     
     domain_definitions = {
