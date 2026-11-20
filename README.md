@@ -13,6 +13,16 @@ This work is licensed under a
 [cc-by-nc-sa-image]: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png
 [cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg
 
+## Authors
+Cite this work as:
+
+```bibtex
+@software{Trento_Oliveira_Flood_Risk_Framework,
+author = {Trento Oliveira, Lorraine and Dijkstra, Anne M. and Belgiu, Mariana and Campomanes, V, Florencio  and Cárdenas-León, Ivan and Kuffer, Monika},
+license = {CC-BY-NC-SA-4.0},
+title = {{Flood Risk Framework - Dendrogram Explorer}},
+}
+```
 
 
 ## Features
@@ -148,9 +158,6 @@ Potential features for future versions:
 
 This project is released under the [CC-BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
 
-## Authors
-
-Created with expertise in geospatial analysis, data visualization, and graphic design.
 
 ---
 
