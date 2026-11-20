@@ -78,15 +78,16 @@ def create_circular_dendrogram(df, category_col, subcategory_col):
 }
     
     domain_definitions = {
-    "Social and demographic features": "Population composition, social roles, social capital, community dynamics, and demographic pressure that influence the vulnerability of individuals or groups, limiting their capacity to cope with and recover from floods.",
-    "Sanitation and health infrastructure": "Infrastructure, services, and practices that safeguard community health before, during, and after flood crises—particularly sanitation provision and quality. ",
-    "Spatial factors": "Influence of the location and distribution of people and structures in urban settlements, including placement of human activities and the morphology of built-up areas. ",
-    "Physical characteristics": "Influence of the location and distribution of people and structures in urban settlements, including placement of human activities and the morphology of built-up areas. ",
-    "Economic aspects": "Limiting or enabling economic conditions that either deepen or reduce flood vulnerability, including limitations in financial capacity, economic opportunity, and access to basic services and utilities. ",
-    "Governance systems": "Systemic aspects that influence how decisions are made, implemented, and held accountable in flood risk management, including issues in planning, reinforcement, and trust. ",
-    "Institutional capacities": "Factors that affect the ability of formal institutions to carry out disaster-related operations effectively, involving resources, skills, structure, and infrastructure. ",
-    "Community-led actions": "Collective or individual practices initiated and carried out by community members themselves—without depending entirely on external agencies—to prevent and respond to flood impacts ",
-    "Awareness and alert systems": "Knowledge and communication systems that inform and prepare residents. "
+    "Social and demographic features": "Individual and social characteristics and relations that shape susceptibility and capacity to cope with, adapt to, and recover from flood impacts.",
+    "Sanitation and health infrastructure": "Quality and provision of drainage systems, waste management, and disease prevention practices that safeguard community 
+168 health before, during, and after flood events.",
+    "Spatial configuration": "Density, layout, and spatial distribution of elements at risk and urban activities that condition the severity and propagation of flood impacts",
+    "Physical characteristics": "Quality of the urban structures as well as the characteristics of the natural environment. ",
+    "Economic aspects": "Financial and livelihood conditions that enable or constrain capacities to cope with, adapt to, and recover from flood impacts.",
+    "Governance systems": "Decision-making structures, planning processes, and accountability mechanisms that shape flood risk management. ",
+    "Institutional capacities": "Resources, skills, and infrastructure of formal institutions whose availability and effectiveness can constrain or enable flood prevention, response, and recovery.",
+    "Community-led actions": "Collective practices initiated by residents themselves, often emerging where formal support is limited.",
+    "Awareness and alert systems": "Knowledge and communication systems that inform and prepare residents about flood risks."
 }
     
     categories = df[category_col].unique()
