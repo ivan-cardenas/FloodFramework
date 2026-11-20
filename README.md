@@ -2,7 +2,8 @@
 ## Vulnerability & Local Urban Experience in Deprived-settlements
 A beautiful, interactive Streamlit application for visualizing hierarchical data using circular dendrograms with dynamic filtering capabilities.
 
-[![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
+[![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa] [![DOI](https://zenodo.org/badge/1141903505.svg)](https://doi.org/10.5281/zenodo.24406324)
+
 
 This work is licensed under a
 [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa].
@@ -14,6 +15,14 @@ This work is licensed under a
 [cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg
 
 ## Authors
+
+- Lorraine Trento Oliveira [![ORCID](https://img.shields.io/badge/ORCID-0000--0002--2707--8006-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0000-0002-2707-8006)
+- Anne M. Dijkstra [![ORCID](https://img.shields.io/badge/ORCID-0000--0002--1699--5087-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0000-0002-1699-5087)
+- Mariana Belgiu [![ORCID](https://img.shields.io/badge/ORCID-0000--0002--2147--1894-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0000-0002-2147-1894)
+- Florencio Campomanes V [![ORCID](https://img.shields.io/badge/ORCID-0000--0002--1051--3104-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0000-0002-1051-3104)
+- Ivan Cárdenas-León [![ORCID](https://img.shields.io/badge/ORCID-0009--0005--0245--633X-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0009-0005-0245-633X)
+- Monika Kuffer [![ORCID](https://img.shields.io/badge/ORCID-0000--0002--1915--2069-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0000-0002-1915-2069)
+
 Cite this work as:
 
 ```bibtex
@@ -21,6 +30,9 @@ Cite this work as:
 author = {Trento Oliveira, Lorraine and Dijkstra, Anne M. and Belgiu, Mariana and Campomanes, V, Florencio  and Cárdenas-León, Ivan and Kuffer, Monika},
 license = {CC-BY-NC-SA-4.0},
 title = {{Flood Risk Framework - Dendrogram Explorer}},
+url = {https://floodframework.streamlit.app/},
+doi = {https://doi.org/10.5281/zenodo.24406324}
+
 }
 ```
 
